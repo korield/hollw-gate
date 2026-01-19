@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      creeperEyeBlue_0: -908436357826734201
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

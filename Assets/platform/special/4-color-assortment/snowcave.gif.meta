@@ -172,7 +172,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      snowcave_0: -3370380358480472603
+      snowcave_1: -6949412875901458400
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

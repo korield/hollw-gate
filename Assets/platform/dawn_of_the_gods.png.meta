@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      dawn_of_the_gods_0: -3753418090614479738
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

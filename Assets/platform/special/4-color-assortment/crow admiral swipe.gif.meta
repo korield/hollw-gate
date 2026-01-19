@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      crow admiral swipe_0: 4376463771989952437
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      moonflower_0: 7528749040690724263
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

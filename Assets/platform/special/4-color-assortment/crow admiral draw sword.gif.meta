@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      crow admiral draw sword_0: 1127921305563114674
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
