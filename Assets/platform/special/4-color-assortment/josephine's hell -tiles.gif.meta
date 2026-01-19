@@ -197,7 +197,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      josephine's hell -tiles_0: -5606072934829994223
+      josephine's hell -tiles_1: 625348170819342362
+      josephine's hell -tiles_2: -8959139126509346431
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      creeperEyesGreen_0: -4501010548291665879
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

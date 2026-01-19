@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bgtooga2_0: -1520225407003452835
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

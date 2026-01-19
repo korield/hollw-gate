@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      corporal tailwaggler_0: 2599400640407802311
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bitten von krumpen-walk_0: -2287169019034715108
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

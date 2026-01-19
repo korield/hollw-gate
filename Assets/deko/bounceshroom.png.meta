@@ -272,7 +272,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bounceshroom_0: -3717753216110267689
+      bounceshroom_1: 111014292202369112
+      bounceshroom_2: 7818211897071619310
+      bounceshroom_3: -5192663978716227217
+      bounceshroom_4: -2001797158114088043
+      bounceshroom_5: 1304388137543174999
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

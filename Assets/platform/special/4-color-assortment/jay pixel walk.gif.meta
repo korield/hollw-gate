@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      jay pixel walk_0: 4708591775632271791
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

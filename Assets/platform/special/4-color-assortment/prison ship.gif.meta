@@ -272,7 +272,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      prison ship_0: 419280330751840456
+      prison ship_1: 1367165152868936455
+      prison ship_2: 2585643910836639617
+      prison ship_3: -5475586948749519584
+      prison ship_4: -4777319164417492785
+      prison ship_5: -3520946768482786182
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

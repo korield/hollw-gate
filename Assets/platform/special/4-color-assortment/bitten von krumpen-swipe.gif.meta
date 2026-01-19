@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bitten von krumpen-swipe_0: 3170858567500263055
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

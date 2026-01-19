@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      castle Von Krumpen_0: -7240004282367556875
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

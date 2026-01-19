@@ -172,7 +172,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      the king of hell breath_0: -7138697565631739105
+      the king of hell breath_1: -211710217502575527
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
