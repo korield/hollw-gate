@@ -17,8 +17,18 @@
         [Header("Camera")]
         public Camera mainCamera;
 
+        [Header("Animation")]
+        public int animation_attack_time = 2;
+
+        [Header("Attack")]
+        public Transform attackPoint;
+        public LayerMask enemyLayer;
+        public float attackRange = 0.5f;
+        public int attackDamage = 5;
+        public float attackRate = 2f;
+        float nextAttackTime = 0f;
+
         private Rigidbody2D rb;
-        private bool IsFacingRight = true;
         void Start()
         {
             rb = GetComponent<Rigidbody2D>();
@@ -34,7 +44,14 @@
         void Update()
         {
             Time.timeScale = 2f;
-        
+
+            if(Time.time >= nextAttackTime){
+
+                 if (Input.GetKeyDown(KeyCode.Mouse0)){
+                     Attack();
+                    nextAttackTime = Time.time + 1f / attackRate;
+                }
+            }
             float moveInput = 0f;
             // Links: A oder Pfeil Links
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)){
@@ -71,23 +88,28 @@
        
        
         }
-        private void Turn()
+
+        public void Attack()
         {
-            if(IsFacingRight)
-            {
-                Vector3 rotator = new Vector3(transform.rotation.x, 180f, transform.rotation.z);
-                transform.rotation = Quaternion.Euler(rotator);
-                IsFacingRight = false;
+            //Attack Animation muss man hier noch machen aber Peter ist zu faul
+            Collider2D [] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
-                if (cameraFollowObject != null) cameraFollowObject.CallTurn();
-            }
-            else
-            {
-                Vector3 rotator = new Vector3(transform.rotation.x, 0f, transform.rotation.z);
-                transform.rotation = Quaternion.Euler(rotator);
-                IsFacingRight = false;
+            foreach(Collider2D enemy in hitEnemies){
+                enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
 
-                if (cameraFollowObject != null) cameraFollowObject.CallTurn();
             }
         }
+        void OnDrawGizmosSelected()
+        {
+             if (attackPoint == null)
+                 return;
+
+             Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+            
+
+        }
+
+
+
+        
     }
