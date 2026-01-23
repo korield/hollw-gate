@@ -27,6 +27,8 @@
         public int attackDamage = 5;
         public float attackRate = 2f;
         float nextAttackTime = 0f;
+        public int maxHealth_Player = 5;
+        int currentHealth_Player;
 
         private Rigidbody2D rb;
         void Start()
@@ -38,6 +40,7 @@
             {
                 cameraFollowObject = _cameraFollowObject.GetComponent<CameraFollowOBJECT>();   
             }
+            currentHealth_Player = maxHealth_Player;
       
         }
 
@@ -108,8 +111,18 @@
             
 
         }
+        public void TakeDamage_Player(int damage)
+        {
+            currentHealth_Player -= damage;
+            if (currentHealth_Player <= 0)
+            {
+                Die_Player();
+            }
+        }
+        void Die_Player()
+        {
+            GetComponent<Collider2D>().enabled = false;
+            this.enabled = false;
+        }
 
-
-
-        
     }
