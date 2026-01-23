@@ -14,6 +14,13 @@ public class FlappyBirdGame : MonoBehaviour
     private float spawnTimer = 0;
     private bool gameOver = false;
 
+    // --- Win / Fly-out Einstellungen ---
+    public float winFlySpeed = 7f;
+    public Vector2 winFlyDirection = new Vector2(1f, 1f);
+    public float winDuration = 2f;
+    private bool isWinFlying = false;
+    private float winTimer = 0f;
+
     void Start()
     {
         scoreText.text = "Score: 0";
@@ -21,7 +28,7 @@ public class FlappyBirdGame : MonoBehaviour
 
     void Update()
     {
-        if (!gameOver)
+        if (!gameOver && !isWinFlying)
         {
             // Springen mit Space oder E
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E))
@@ -38,10 +45,30 @@ public class FlappyBirdGame : MonoBehaviour
             }
         }
 
+        // Wenn der Spieler gerade "nach oben-rechts fliegt", Timer hochzï¿½hlen und evtl. Szene laden
+        if (isWinFlying)
+        {
+            winTimer += Time.deltaTime;
+            if (winTimer >= winDuration)
+            {
+                LoadNextLevel();
+            }
+        }
+
         // Restart mit R
         if (gameOver && Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (isWinFlying)
+        {
+            // konstante Fluggeschwindigkeit nach oben-rechts setzen
+            Vector2 dir = winFlyDirection.normalized;
+            player.linearVelocity = dir * winFlySpeed;
         }
     }
 
@@ -57,7 +84,7 @@ public class FlappyBirdGame : MonoBehaviour
         score++;
         scoreText.text = "Score: " + score;
 
-        if (score >= 5) // Gewonnen hier nach 5 Punkten
+        if (score >= 10) // PunktezumGewinnen
         {
             Win();
         }
@@ -69,15 +96,56 @@ public class FlappyBirdGame : MonoBehaviour
         {
             gameOver = true;
             player.linearVelocity = Vector2.zero;
-            scoreText.text = "Game Over! Drücke R zum Neustarten";
+            scoreText.text = "Game Over! Drï¿½cke R zum Neustarten";
         }
     }
 
     void Win()
     {
+        if (gameOver) return;
         gameOver = true;
         scoreText.text = "Gewonnen!";
-        Invoke("LoadNextLevel", 2f);
+
+        // Start Win-Fly
+        StartWinFly();
+
+        // Fallback: lade nach winDuration (wenn FixedUpdate/Update den Load nicht ï¿½bernimmt)
+        // Hier nicht zusï¿½tzlich Invoke benutzt, weil LoadNextLevel durch winTimer/FixedUpdate getriggert wird
+    }
+
+    void StartWinFly()
+    {
+        isWinFlying = true;
+        winTimer = 0f;
+
+        // Deaktiviere Gravitation und Kollision, damit Flug sauber ist
+        if (player != null)
+        {
+            player.gravityScale = 0f;
+            player.linearVelocity = winFlyDirection.normalized * winFlySpeed;
+            Collider2D col = player.GetComponent<Collider2D>();
+            if (col != null) col.enabled = false;
+        }
+
+        // Versuche Kamera-Tracking zu stoppen:
+        if (Camera.main != null)
+        {
+            // Falls die Kamera als Kind des Spielers hï¿½ngt => entkoppeln
+            Camera.main.transform.SetParent(null);
+
+            // Heuristisch: alle Komponenten an der Kamera deaktivieren, deren Typname "Follow" oder "Cinemachine" enthï¿½lt.
+            // Falls ihr ein spezifisches Kamera-Follow-Skript habt, besser direkt den Typnamen anpassen.
+            var behaviours = Camera.main.GetComponents<MonoBehaviour>();
+            foreach (var b in behaviours)
+            {
+                if (b == null) continue;
+                var typeName = b.GetType().Name;
+                if (typeName.Contains("Follow") || typeName.Contains("Cinemachine"))
+                {
+                    b.enabled = false;
+                }
+            }
+        }
     }
 
     void LoadNextLevel()

@@ -9,7 +9,7 @@ public class Pipe : MonoBehaviour
         transform.position += Vector3.left * speed * Time.deltaTime;
 
         // Zerstöre Pipe wenn außerhalb des Bildschirms
-        if (transform.position.x < -12)
+        if (transform.position.x < -20)
         {
             Destroy(gameObject);
         }
