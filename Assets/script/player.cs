@@ -98,7 +98,7 @@
             Collider2D [] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
             foreach(Collider2D enemy in hitEnemies){
-                enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+                enemy.GetComponent<Enemy>().TakeDamage(attackDamage, transform.position);
 
             }
         }
@@ -121,7 +121,13 @@
         }
         void Die_Player()
         {
-            GetComponent<Collider2D>().enabled = false;
+            Collider2D[] colliders = GetComponents<Collider2D>();
+            foreach (Collider2D collider in colliders)
+            {
+            collider.enabled = false;
+            }
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<Animator>().enabled = false;
             this.enabled = false;
         }
 

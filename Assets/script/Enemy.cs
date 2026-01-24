@@ -54,24 +54,28 @@ public class Enemy : MonoBehaviour
 
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, Vector2 damageSource)
     {
         currentHealth -= damage;
-
-
+        
         if (currentHealth <= 0)
         {
             Die();
         }
-    
+    }
 
     void Die()
     {
-
-        GetComponent<Collider2D>().enabled = false;
+        Collider2D[] colliders = GetComponents<Collider2D>();
+        foreach (Collider2D collider in colliders)
+        {
+            collider.enabled = false;
+        }
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Animator>().enabled = false;
         this.enabled = false;
     }
-}
+    
 
 private void flip()
     {
