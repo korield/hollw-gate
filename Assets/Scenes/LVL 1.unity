@@ -2122,8 +2122,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1543706404}
-  - {fileID: 652854953}
-  - {fileID: 2070942404}
+  - {fileID: 1862290078}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &62203542
@@ -19908,11 +19907,11 @@ Transform:
   m_GameObject: {fileID: 652854952}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.88, y: 2.0699997, z: 0}
+  m_LocalPosition: {x: -17.88, y: 1.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 56571135}
+  m_Father: {fileID: 1862290078}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &654712011
 GameObject:
@@ -44990,7 +44989,7 @@ Transform:
   m_GameObject: {fileID: 1543706402}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.92, y: 2.03, z: 0}
+  m_LocalPosition: {x: -0.92, y: 1.65, z: 0}
   m_LocalScale: {x: 7.16, y: 6.89, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -45057,6 +45056,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   pointA: {fileID: 652854952}
   pointB: {fileID: 2070942403}
+  gizmosContainer: {fileID: 1862290077}
   speed: 2
   attackPoint: {fileID: 1056997470}
   playerLayer:
@@ -45067,6 +45067,13 @@ MonoBehaviour:
   attackRate: 2
   nextAttackTime: 0
   maxHealth: 12
+  playerMovment: {fileID: 1657541242}
+  EnemyKBForce: 10
+  EnemyKBCounter: 0.2
+  EnemyKBTotalTime: 0.5
+  EnemyKnockFromRight: 0
+  damageCooldown: 0.5
+  fallMultiplier: 10
 --- !u!50 &1543706407
 Rigidbody2D:
   serializedVersion: 5
@@ -45082,7 +45089,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -48748,6 +48755,11 @@ MonoBehaviour:
   attackDamage: 5
   attackRate: 2
   maxHealth_Player: 5
+  KBForce: 10
+  KBCounter: 0.2
+  KBTotalTime: 0.5
+  KnockFromRight: 1
+  enemyMovment: {fileID: 0}
 --- !u!61 &1657541243
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54656,6 +54668,39 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1862290077
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1862290078}
+  m_Layer: 0
+  m_Name: gizmos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1862290078
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862290077}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 652854953}
+  - {fileID: 2070942404}
+  m_Father: {fileID: 56571135}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1863651865
 GameObject:
   m_ObjectHideFlags: 0
@@ -60450,11 +60495,11 @@ Transform:
   m_GameObject: {fileID: 2070942403}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.029999, y: 1.949997, z: 0}
+  m_LocalPosition: {x: 13.029999, y: 1.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 56571135}
+  m_Father: {fileID: 1862290078}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2073701452
 GameObject:
