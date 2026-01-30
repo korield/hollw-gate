@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public Animator animateor;
+    [Header("Patrol Points")]
     public GameObject pointA;
     public GameObject pointB;
     public GameObject gizmosContainer;
@@ -20,7 +22,7 @@ public class Enemy : MonoBehaviour
     public float attackRate = 2f;
     public float nextAttackTime = 0f;
     public int maxHealth = 12;
-    int currentHealth;
+    public int currentHealth;
     public Player playerMovment;
 
     [Header("Knockback")]
@@ -121,14 +123,24 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        animateor.Play("Slime Death");
+
+        rb.linearVelocity = Vector2.zero;
+        rb.bodyType = RigidbodyType2D.Static;
+
         Collider2D[] colliders = GetComponents<Collider2D>();
         foreach (Collider2D collider in colliders)
         {
             collider.enabled = false;
         }
-        GetComponent<SpriteRenderer>().enabled = false;
-        GetComponent<Animator>().enabled = false;
+
+        Invoke("DisableEnemy",2f);
+
         this.enabled = false;
+    }
+    void DisableEnemy()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
     }
     
 
